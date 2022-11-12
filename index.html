@@ -1,0 +1,66 @@
+<h1>Hangman</h1>
+<input type="text" id="myText" value="">
+<button onclick="myFunction()">Type a Letter</button>
+<button onclick="mychow()">Quit</button>
+<p> Word:</p>
+<p id="word"></p>
+<p> Correct Guesses:</p>
+<p id="cguesses"></p>
+<p> Wrong Guesses:</p>
+<p id="wguesses"></p>
+<p> Total Guesses:</p>
+<p id="tguesses"></p>
+<p> Wrong Letters:</p>
+<p id="wletta"></p>
+<script>
+  //
+  let cg = 0
+  let wg = 0
+
+  function mychow() {
+    window.alert("Thanks for playing choa!")
+    window.location.reload()
+  }
+
+  function myFunction() {
+    var x = document.getElementById("myText").value;
+    x = x.toUpperCase()
+    if (rand.includes(x)) {
+      correctL.push(x)
+      cg++
+    } else {
+      incorrectL.push(x)
+      wg++
+    }
+    tg = cg + wg
+    os = ""
+    for (let i = 0; i < rand.length; i++) {
+      let l = rand[i]
+      if (correctL.includes(l)) {
+        os = os + l
+      } else {
+        os = os + '_'
+      }
+      document.getElementById("word").innerHTML = os;
+      document.getElementById("wletta").innerHTML = incorrectL;
+      document.getElementById("cguesses").innerHTML = cg;
+      document.getElementById("wguesses").innerHTML = wg;
+      document.getElementById("tguesses").innerHTML = tg;
+      if (os == rand) {
+        window.alert("You correctly guessed the word it took you " + tg + " tries!")
+        window.location.reload()
+      }
+    }
+  }
+</script>
+</body>
+<script>
+  window.alert("Welcome to the Game!")
+  var words = ['To', 'Tag', 'Star', 'Jolly', 'Retail', 'Skittle', 'Original', 'Cosmetics', 'Albuquerque'];
+  var correctL = []
+  var incorrectL = []
+  var rand = words[Math.floor(Math.random() * words.length)];
+  rand = rand.toUpperCase()
+  window.alert(('The Word Contains ' + rand.length + ' letters!'));
+ 
+</script>
